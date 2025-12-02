@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://pwqvv1n05spa"]
+
+[ext_resource type="Theme" uid="uid://b6njdf6v6pcvh" path="res://main_theme.tres" id="1_q6t7t"]
+[ext_resource type="Texture2D" uid="uid://fxl74ro5t4nc" path="res://icon.svg" id="2_tnm5o"]
+
+[node name="UpgradePanel" type="PanelContainer"]
+custom_minimum_size = Vector2(270, 480)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -690.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(135, 240)
+size_flags_vertical = 4
+theme = ExtResource("1_q6t7t")
+
+[node name="UpgradePanel" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="UpgradePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_tnm5o")
+expand_mode = 2
+
+[node name="Level" type="Label" parent="UpgradePanel/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "2"
+
+[node name="Title" type="Label" parent="UpgradePanel"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Upgrade Title"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="UpgradePanel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Describes how the upgrade functions."
+
+[node name="StatChange" type="RichTextLabel" parent="UpgradePanel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Stat: 10 > 11"

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6u3781fh0apv"]
+
+[ext_resource type="PackedScene" uid="uid://pwqvv1n05spa" path="res://upgrade_panel.tscn" id="1_adbc8"]
+[ext_resource type="Theme" uid="uid://b6njdf6v6pcvh" path="res://main_theme.tres" id="1_scxlh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_scxlh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="UpgradePanel1" parent="HBoxContainer" instance=ExtResource("1_adbc8")]
+layout_mode = 2
+
+[node name="UpgradePanel2" parent="HBoxContainer" instance=ExtResource("1_adbc8")]
+layout_mode = 2
+
+[node name="UpgradePanel3" parent="HBoxContainer" instance=ExtResource("1_adbc8")]
+layout_mode = 2
