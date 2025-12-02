@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://boq5qh4017at0"]
+
+[ext_resource type="PackedScene" uid="uid://dyvac0uqplsu3" path="res://candle.tscn" id="1_n3pnt"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ir5de"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.15
+
+[node name="Birthday" type="Node3D"]
+
+[node name="Cake" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+mesh = SubResource("CylinderMesh_ir5de")
+
+[node name="CandleAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="Candle" parent="CandleAnchor" instance=ExtResource("1_n3pnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12624803, 0, 0.040108293)
+
+[node name="Candle2" parent="CandleAnchor" instance=ExtResource("1_n3pnt")]
+
+[node name="Candle3" parent="CandleAnchor" instance=ExtResource("1_n3pnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052197576, 0, -0.14325449)
+
+[node name="Candle4" parent="CandleAnchor" instance=ExtResource("1_n3pnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06871197, -1.4901161e-08, 0.11702651)
+
+[node name="Candle5" parent="CandleAnchor" instance=ExtResource("1_n3pnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09394431, 0, 0.07365349)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0.4621664, 0.725309)
+fov = 30.0
