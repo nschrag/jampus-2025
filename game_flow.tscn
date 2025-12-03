@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ia0kfpqll41x"]
 
 [ext_resource type="Script" uid="uid://buxixcommws8m" path="res://game_flow.gd" id="1_8surs"]
-[ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrade_pool.gd" id="2_rdnhm"]
-[ext_resource type="Script" uid="uid://bubr2gqe2fx22" path="res://upgrades/upgrade_definition.gd" id="3_a3xpr"]
-[ext_resource type="Resource" uid="uid://brgjs5umunjv" path="res://upgrades/blow_radius.tres" id="4_l4ek2"]
-[ext_resource type="Resource" uid="uid://cnhjscxxi1uei" path="res://upgrades/flame_resilience.tres" id="6_a3xpr"]
-[ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/burn_rate.tres" id="6_os3bc"]
-[ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/inhale_duration.tres" id="7_bby52"]
-[ext_resource type="Resource" uid="uid://c1ugo8prrmd31" path="res://upgrades/lung_capacity.tres" id="8_ylt7f"]
+[ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrades/system/upgrade_pool.gd" id="2_rdnhm"]
+[ext_resource type="Script" uid="uid://bubr2gqe2fx22" path="res://upgrades/system/upgrade_definition.gd" id="3_a3xpr"]
+[ext_resource type="Resource" uid="uid://brgjs5umunjv" path="res://upgrades/data/blow_radius.tres" id="4_l4ek2"]
+[ext_resource type="Resource" uid="uid://cnhjscxxi1uei" path="res://upgrades/data/flame_resilience.tres" id="6_a3xpr"]
+[ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/data/burn_rate.tres" id="6_os3bc"]
+[ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/data/inhale_duration.tres" id="7_bby52"]
+[ext_resource type="Resource" uid="uid://c1ugo8prrmd31" path="res://upgrades/data/lung_capacity.tres" id="8_ylt7f"]
 
 [node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool")]
 script = ExtResource("1_8surs")
