@@ -11,4 +11,5 @@ border_width_right = 2
 border_width_bottom = 2
 
 [resource]
+ContentButton/base_type = &"Button"
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_gsqoc")

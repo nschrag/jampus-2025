@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrade_pool.gd" id="2_rdnhm"]
 [ext_resource type="Script" uid="uid://bubr2gqe2fx22" path="res://upgrades/upgrade_definition.gd" id="3_a3xpr"]
 [ext_resource type="Resource" uid="uid://brgjs5umunjv" path="res://upgrades/blow_radius.tres" id="4_l4ek2"]
-[ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/burn_rate.tres" id="5_dyw4y"]
-[ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/flame_resilience.tres" id="6_os3bc"]
+[ext_resource type="Resource" uid="uid://cnhjscxxi1uei" path="res://upgrades/flame_resilience.tres" id="6_a3xpr"]
+[ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/burn_rate.tres" id="6_os3bc"]
 [ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/inhale_duration.tres" id="7_bby52"]
 [ext_resource type="Resource" uid="uid://c1ugo8prrmd31" path="res://upgrades/lung_capacity.tres" id="8_ylt7f"]
 
@@ -15,4 +15,4 @@ upgrade_pool = NodePath("UpgradePool")
 
 [node name="UpgradePool" type="Node" parent="."]
 script = ExtResource("2_rdnhm")
-definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("5_dyw4y"), ExtResource("6_os3bc"), ExtResource("7_bby52"), ExtResource("8_ylt7f")])
+definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("6_os3bc"), ExtResource("6_a3xpr"), ExtResource("7_bby52"), ExtResource("8_ylt7f")])

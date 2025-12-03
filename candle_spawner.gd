@@ -1,21 +1,14 @@
-extends Node3D
+class_name CandleSpawner extends Node3D
 
 @onready var candle_scene = preload("uid://dyvac0uqplsu3")
 
 signal all_candles_extinguished
 
-var inventory: Inventory
 var burning_candle_count: int = 0
 
-func _init() -> void:
-	inventory = Inventory.new()
-	
-func _ready() -> void:
-	spawn_candles.call_deferred(10)
-
-func spawn_candles(number: int):
-	burning_candle_count = number
-	for i in number:
+func spawn_candles(inventory: Inventory, count: int):
+	burning_candle_count = count
+	for i in count:
 		var p = random_in_circle(0.25)
 		var c: Candle = candle_scene.instantiate()
 		add_child(c)

@@ -4,59 +4,69 @@
 [ext_resource type="Script" uid="uid://cyl1nevtp045f" path="res://upgrade_panel.gd" id="2_mwky1"]
 [ext_resource type="Texture2D" uid="uid://fxl74ro5t4nc" path="res://icon.svg" id="2_tnm5o"]
 
-[node name="UpgradePanel" type="PanelContainer" node_paths=PackedStringArray("icon", "level", "title", "description", "stats")]
+[node name="Button" type="Button" node_paths=PackedStringArray("id_icon", "level", "title", "description", "stats")]
 custom_minimum_size = Vector2(270, 480)
+offset_right = 270.0
+offset_bottom = 480.0
+pivot_offset = Vector2(135, 240)
+size_flags_vertical = 4
+script = ExtResource("2_mwky1")
+id_icon = NodePath("UpgradePanel/UpgradePanel/HBoxContainer/Icon")
+level = NodePath("UpgradePanel/UpgradePanel/HBoxContainer/Level")
+title = NodePath("UpgradePanel/UpgradePanel/Title")
+description = NodePath("UpgradePanel/UpgradePanel/Description")
+stats = NodePath("UpgradePanel/UpgradePanel/StatChange")
+
+[node name="UpgradePanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(270, 480)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -690.0
-offset_bottom = -60.0
+offset_left = -135.0
+offset_top = -240.0
+offset_right = 135.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(135, 240)
 size_flags_vertical = 4
+mouse_behavior_recursive = 1
 theme = ExtResource("1_q6t7t")
-script = ExtResource("2_mwky1")
-icon = NodePath("UpgradePanel/HBoxContainer/Icon")
-level = NodePath("UpgradePanel/HBoxContainer/Level")
-title = NodePath("UpgradePanel/Title")
-description = NodePath("UpgradePanel/Description")
-stats = NodePath("UpgradePanel/StatChange")
 
-[node name="UpgradePanel" type="VBoxContainer" parent="."]
+[node name="UpgradePanel" type="VBoxContainer" parent="UpgradePanel"]
 layout_mode = 2
+mouse_behavior_recursive = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel/UpgradePanel"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Icon" type="TextureRect" parent="UpgradePanel/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="UpgradePanel/UpgradePanel/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_tnm5o")
 expand_mode = 2
 
-[node name="Level" type="Label" parent="UpgradePanel/HBoxContainer"]
+[node name="Level" type="Label" parent="UpgradePanel/UpgradePanel/HBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "2"
 
-[node name="Title" type="Label" parent="UpgradePanel"]
+[node name="Title" type="Label" parent="UpgradePanel/UpgradePanel"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Upgrade Title"
 horizontal_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="UpgradePanel"]
+[node name="Description" type="RichTextLabel" parent="UpgradePanel/UpgradePanel"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Describes how the upgrade functions."
 
-[node name="StatChange" type="RichTextLabel" parent="UpgradePanel"]
+[node name="StatChange" type="RichTextLabel" parent="UpgradePanel/UpgradePanel"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Stat: 10 > 11"
