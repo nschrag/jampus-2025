@@ -6,14 +6,17 @@ class_name UpgradePanel extends Button
 @export var description: RichTextLabel
 @export var stats: RichTextLabel
 
+signal selected(id: String)
+var id: String
+
 func populate(next_level: int, def: UpgradeDefinition) -> void:
+	id = def.id
 	level.text = str(next_level)
 	title.text = def.name
 	description.text = def.description
-	if pressed.get_connections().size() == 0:
-		push_warning("Button has no action assigned on press")
 
 func _ready():
+	pressed.connect(func(): selected.emit(id))
 	connect("mouse_entered", big)
 	connect("mouse_exited", small)
 	pivot_offset = Vector2(size.x/2, size.y/2)

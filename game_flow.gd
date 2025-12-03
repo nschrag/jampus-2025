@@ -17,9 +17,14 @@ func _ready() -> void:
 	bday.candle_spawner.spawn_candles(inventory, 1)
 	
 	upgrade_screen = upgrade_scene.instantiate()
+	upgrade_screen.upgrade_selected.connect(_on_upgrade_selected)
 	upgrade_screen.visible = false
 	add_child(upgrade_screen)
 	
 func _on_celebration_complete():
 	upgrade_screen.visible = true
 	upgrade_screen.populate(inventory, upgrade_pool.select_set(3))
+	
+func _on_upgrade_selected(id: String):
+	inventory.upgrade(id)
+	_on_celebration_complete()
