@@ -5,6 +5,7 @@ static var definitions: Dictionary[String, UpgradeDefinition]
 @export var id: String
 @export var name: String
 @export var levels: Array[float]
+@export var description: String
 
 
 func _init() -> void:

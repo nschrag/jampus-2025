@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3 uid="uid://brgjs5umunjv"]
+
+[ext_resource type="Script" uid="uid://bubr2gqe2fx22" path="res://upgrades/upgrade_definition.gd" id="1_v7ahl"]
+
+[resource]
+script = ExtResource("1_v7ahl")
+id = "blow_radius"
+name = "Blow Radius"
+levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
+description = "Increases the blowing area of effect"
+metadata/_custom_type_script = "uid://bubr2gqe2fx22"

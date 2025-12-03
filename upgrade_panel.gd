@@ -1,4 +1,4 @@
-extends PanelContainer
+class_name UpgradePanel extends PanelContainer
 
 @export var icon: TextureRect
 @export var level: Label
@@ -6,5 +6,6 @@ extends PanelContainer
 @export var description: RichTextLabel
 @export var stats: RichTextLabel
 
-func populate() -> void:
-	pass
+func populate(def: UpgradeDefinition) -> void:
+	title.text = def.name
+	description.text = def.description
