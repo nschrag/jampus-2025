@@ -55,3 +55,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
 shape = SubResource("SphereShape3D_pqck8")
 
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_mouse_entered_flame"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_mouse_exited_flame"]

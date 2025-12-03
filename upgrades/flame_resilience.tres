@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3 uid="uid://c5ivac4nbsj66"]
+
+[ext_resource type="Script" uid="uid://bubr2gqe2fx22" path="res://upgrades/upgrade_definition.gd" id="1_pxsd4"]
+
+[resource]
+script = ExtResource("1_pxsd4")
+id = "flame_resilience"
+levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
+metadata/_custom_type_script = "uid://bubr2gqe2fx22"
