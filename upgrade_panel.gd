@@ -17,14 +17,10 @@ func populate(next_level: int, def: UpgradeDefinition) -> void:
 
 func _ready():
 	pressed.connect(func(): selected.emit(id))
-	connect("mouse_entered", big)
-	connect("mouse_exited", small)
+	mouse_entered.connect(func(): tween_scale(1.1))
+	mouse_exited.connect(func(): tween_scale(1.0))
 	pivot_offset = Vector2(size.x/2, size.y/2)
 
-func big():
-	var tween_big = create_tween().set_trans(Tween.TRANS_BACK)
-	tween_big.tween_property(self, "scale", Vector2(1.1, 1.1), 0.5)
-
-func small():
-	var tween_small = create_tween().set_trans(Tween.TRANS_BACK)
-	tween_small.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5) 
+func tween_scale(target_scale: float):
+	var t = create_tween().set_trans(Tween.TRANS_BACK)
+	t.tween_property(self, "scale", Vector2(target_scale, target_scale), 0.5)
