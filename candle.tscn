@@ -17,9 +17,10 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="SphereShape3D" id="SphereShape3D_pqck8"]
 radius = 0.01
 
-[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame")]
+[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame", "collider")]
 script = ExtResource("1_tcgl6")
 flame = NodePath("Wick/Flame")
+collider = NodePath("Area3D")
 
 [node name="Stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
