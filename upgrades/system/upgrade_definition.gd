@@ -1,15 +1,9 @@
 class_name UpgradeDefinition extends Resource
 
-static var definitions: Dictionary[String, UpgradeDefinition]
-
 @export var id: String
 @export var name: String
 @export var levels: Array[float]
 @export var description: String
-
-
-func _init() -> void:
-	definitions[id] = self
 	
 func get_value(level: int):
 	if levels.size() == 0:

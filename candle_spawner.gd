@@ -16,6 +16,10 @@ func spawn_candles(inventory: Inventory, count: int):
 		c.resilience -= inventory.get_upgrade_value("flame_resilience")
 		c.flame_extinguished.connect(_on_candle_extinguished)
 		
+func clear_candles():
+	for c in get_children():
+		c.queue_free()
+		
 func _on_candle_extinguished():
 	burning_candle_count -= 1
 	if burning_candle_count == 0:

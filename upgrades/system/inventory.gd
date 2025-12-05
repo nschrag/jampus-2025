@@ -1,6 +1,7 @@
 class_name Inventory extends Object
 
-var age: int
+var birth_month: int = 3
+var age: int = 18
 var upgrades: Dictionary[String, int]
 
 func upgrade(id: String):
@@ -17,6 +18,6 @@ func get_upgrade_level(id: String) -> int:
 		
 func get_upgrade_value(id: String) -> float:
 	if upgrades.has(id):
-		return UpgradeDefinition.definitions[id].levels[upgrades[id]]
+		return UpgradePool.get_value(id, upgrades[id])
 	else:
 		return 0
