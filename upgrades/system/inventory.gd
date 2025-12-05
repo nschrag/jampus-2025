@@ -1,8 +1,27 @@
 class_name Inventory extends Object
 
+const months = [
+	"January", "February", "March", "April", "May", "June", "July", 
+	"August", "September", "October", "November", "December"]
+
 var birth_month: int = 3
+var current_month: int
 var age: int = 18
 var upgrades: Dictionary[String, int]
+
+func _init() -> void:
+	current_month = birth_month
+	
+func advance_time():
+	current_month = (current_month + 1) % months.size()
+	if current_month == birth_month:
+		age += 1
+		
+func is_birth_month() -> bool:
+	return current_month == birth_month
+	
+func get_current_month_name() -> String:
+	return months[current_month]
 
 func upgrade(id: String):
 	if upgrades.has(id):
