@@ -9,7 +9,7 @@ var burning_candle_count: int = 0
 func spawn_candles(inventory: Inventory, count: int):
 	burning_candle_count = count
 	for i in count:
-		var p = random_in_circle(0.25)
+		var p = random_in_circle(2.5)
 		var c: Candle = candle_scene.instantiate()
 		add_child(c)
 		c.position = Vector3(p.x, 0, p.y)

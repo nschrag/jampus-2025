@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bgu87dahtct6o" path="res://candle.gd" id="1_tcgl6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2ipi1"]
-top_radius = 0.01
-bottom_radius = 0.01
-height = 0.15
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
 radial_segments = 16
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tcgl6"]
-size = Vector2(3, 15)
+size = Vector2(30, 150)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pqck8"]
 viewport_path = NodePath("SubViewport")
@@ -23,29 +23,29 @@ flame = NodePath("Wick/Flame")
 collider = NodePath("Area3D")
 
 [node name="Stick" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("CylinderMesh_2ipi1")
 
 [node name="Wick" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-offset = Vector2(0, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+offset = Vector2(0, 75)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("PlaceholderTexture2D_tcgl6")
 
 [node name="Flame" type="Sprite3D" parent="Wick"]
-offset = Vector2(0, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0703311, 0)
 modulate = Color(1, 1, 1, 0.39215687)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("ViewportTexture_pqck8")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(32, 32)
+size = Vector2i(256, 256)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 256.0
+offset_bottom = 256.0
 color = Color(1, 0.3882353, 0, 1)
 
 [node name="Area3D" type="Area3D" parent="."]
