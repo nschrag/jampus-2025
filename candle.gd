@@ -8,20 +8,25 @@ var resilience: float = 0.5
 
 var timer: Timer
 
+func _ready() -> void:
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.timeout.connect(extinguish)
+	add_child(timer)
+	
+func check_overlap(camera:Camera3D, pos:Vector2, radius: float):
+	if not flame.visible:
+		return
+		
+	var flame_pos = camera.unproject_position(flame.global_position)
+	if pos.distance_to(flame_pos) <= radius:
+		if timer.is_stopped():
+			timer.start(resilience)
+	else:
+		timer.stop()
+
 func extinguish():
 	assert(flame.visible)
 	collider.monitoring = false
 	flame.visible = false
 	flame_extinguished.emit()
-
-func _on_mouse_entered_flame() -> void:
-	if timer == null:
-		timer = Timer.new()
-		timer.one_shot = true
-		timer.timeout.connect(extinguish)
-		add_child(timer)
-	
-	timer.start(resilience)
-
-func _on_mouse_exited_flame() -> void:
-	timer.stop()
