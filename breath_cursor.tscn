@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v5bvh")
 cursor = NodePath("")
+cursor_color = Color(0.43529412, 0.7294118, 0.8, 0.49803922)
 
 [node name="ColorRect" type="Control" parent="."]
 layout_mode = 1

@@ -15,8 +15,12 @@ func _ready() -> void:
 	timer.timeout.connect(extinguish)
 	add_child(timer)
 	
-func check_overlap(camera:Camera3D, pos:Vector2, radius: float):
+func check_overlap(blowing: bool, camera:Camera3D, pos:Vector2, radius: float):
 	if not flame.visible:
+		return
+		
+	if not blowing:
+		timer.stop()
 		return
 		
 	var flame_pos = camera.unproject_position(flame.global_position)
