@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_xxktl")
-id = "inhale_duration"
-name = "Inhale Duration"
-levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
+id = "inhale_rate"
+name = "Inhale Rate"
+levels = Array[float]([0.0, 10.0, 20.0, 30.0, 0.4, 0.5])
 description = "Reduces the time it takes to fully inhale"
 metadata/_custom_type_script = "uid://bubr2gqe2fx22"

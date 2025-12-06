@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ia0kfpqll41x"]
+[gd_scene load_steps=11 format=3 uid="uid://ia0kfpqll41x"]
 
 [ext_resource type="Script" uid="uid://buxixcommws8m" path="res://game_flow.gd" id="1_8surs"]
 [ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrades/system/upgrade_pool.gd" id="2_rdnhm"]
@@ -6,16 +6,18 @@
 [ext_resource type="Resource" uid="uid://brgjs5umunjv" path="res://upgrades/data/blow_radius.tres" id="4_l4ek2"]
 [ext_resource type="Resource" uid="uid://cnhjscxxi1uei" path="res://upgrades/data/flame_resilience.tres" id="6_a3xpr"]
 [ext_resource type="Resource" uid="uid://c5ivac4nbsj66" path="res://upgrades/data/burn_rate.tres" id="6_os3bc"]
-[ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/data/inhale_duration.tres" id="7_bby52"]
+[ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/data/breath_inhale_rate.tres" id="7_bby52"]
+[ext_resource type="Resource" uid="uid://cprlljk8tfd3y" path="res://upgrades/data/breath_exhale_rate.tres" id="7_dyw4y"]
 [ext_resource type="Resource" uid="uid://c1ugo8prrmd31" path="res://upgrades/data/lung_capacity.tres" id="8_ylt7f"]
 [ext_resource type="PackedScene" uid="uid://dpur0xmxohgq" path="res://breath_cursor.tscn" id="9_l4ek2"]
 
-[node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool")]
+[node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool", "breath_cursor")]
 script = ExtResource("1_8surs")
 upgrade_pool = NodePath("UpgradePool")
+breath_cursor = NodePath("BreathCursor")
 
 [node name="UpgradePool" type="Node" parent="."]
 script = ExtResource("2_rdnhm")
-definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("6_os3bc"), ExtResource("6_a3xpr"), ExtResource("7_bby52"), ExtResource("8_ylt7f")])
+definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("6_os3bc"), ExtResource("6_a3xpr"), ExtResource("7_dyw4y"), ExtResource("7_bby52"), ExtResource("8_ylt7f")])
 
 [node name="BreathCursor" parent="." instance=ExtResource("9_l4ek2")]

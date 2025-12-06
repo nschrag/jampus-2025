@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1llxxxwoyhs7" path="res://breath_cursor.gd" id="1_v5bvh"]
 
-[node name="BreathCursor" type="Control" node_paths=PackedStringArray("cursor")]
+[node name="BreathCursor" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,8 +16,7 @@ offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v5bvh")
-cursor = NodePath("")
-cursor_color = Color(0.43529412, 0.7294118, 0.8, 0.49803922)
+cursor_color = Color(0.43137255, 0.7294118, 0.8, 0.49803922)
 
 [node name="ColorRect" type="Control" parent="."]
 layout_mode = 1

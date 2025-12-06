@@ -3,6 +3,7 @@ extends Node
 var birthday_scene = preload("uid://boq5qh4017at0")
 var upgrade_scene = preload("uid://c6u3781fh0apv")
 @export var upgrade_pool: UpgradePool
+@export var breath_cursor: BreathCursor
 
 var inventory: Inventory
 var bday: Birthday
@@ -10,6 +11,8 @@ var upgrade_screen: UpgradeScreen
 
 func _ready() -> void:
 	inventory = Inventory.new()
+	
+	breath_cursor.inventory = inventory
 
 	bday = birthday_scene.instantiate()
 	bday.celebration_complete.connect(_on_celebration_complete)
