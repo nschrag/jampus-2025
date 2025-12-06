@@ -11,7 +11,7 @@ func get_effective_breath_rate() -> float:
 	if breath_rate == 0:
 		return breath_rate
 	elif breath_rate < 0:
-		return breath_rate - inventory.get_upgrade_value("exhale_rate")
+		return breath_rate + inventory.get_upgrade_value("exhale_rate")
 	else:
 		return breath_rate + inventory.get_upgrade_value("inhale_rate")
 
