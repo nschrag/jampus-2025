@@ -8,6 +8,6 @@ id = "exhale_rate"
 name = "Exhale Rate"
 description = "Reduces the time it takes to fully inhale"
 max_level = 50
-max_value = 25.0
+max_value = 0.9
 levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
 metadata/_custom_type_script = "uid://bubr2gqe2fx22"
