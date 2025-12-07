@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ia0kfpqll41x"]
+[gd_scene load_steps=11 format=3 uid="uid://ia0kfpqll41x"]
 
 [ext_resource type="Script" uid="uid://buxixcommws8m" path="res://game_flow.gd" id="1_8surs"]
 [ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrades/system/upgrade_pool.gd" id="2_rdnhm"]
@@ -9,14 +9,18 @@
 [ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/data/breath_inhale_rate.tres" id="7_bby52"]
 [ext_resource type="Resource" uid="uid://cprlljk8tfd3y" path="res://upgrades/data/breath_exhale_rate.tres" id="7_dyw4y"]
 [ext_resource type="PackedScene" uid="uid://dpur0xmxohgq" path="res://breath_cursor.tscn" id="9_l4ek2"]
+[ext_resource type="PackedScene" uid="uid://gy5lnaxw581i" path="res://wish_ui.tscn" id="10_dyw4y"]
 
-[node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool", "breath_cursor")]
+[node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool", "breath_cursor", "wish_ui")]
 script = ExtResource("1_8surs")
 upgrade_pool = NodePath("UpgradePool")
 breath_cursor = NodePath("BreathCursor")
+wish_ui = NodePath("WishUI")
 
 [node name="UpgradePool" type="Node" parent="."]
 script = ExtResource("2_rdnhm")
 definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("7_dyw4y"), ExtResource("7_bby52"), ExtResource("6_a3xpr"), ExtResource("6_os3bc")])
 
 [node name="BreathCursor" parent="." instance=ExtResource("9_l4ek2")]
+
+[node name="WishUI" parent="." instance=ExtResource("10_dyw4y")]

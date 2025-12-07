@@ -22,6 +22,13 @@ func _ready() -> void:
 	cursor_color_opaque = cursor_color
 	cursor_color_opaque.a = 1
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_ENABLED:
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+		NOTIFICATION_DISABLED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _process(delta: float) -> void:
 	position = get_global_mouse_position()
