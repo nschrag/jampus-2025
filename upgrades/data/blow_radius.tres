@@ -6,6 +6,8 @@
 script = ExtResource("1_v7ahl")
 id = "blow_radius"
 name = "Blow Radius"
-levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
 description = "Increases the blowing area of effect"
+max_level = 100
+max_value = 25.0
+levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
 metadata/_custom_type_script = "uid://bubr2gqe2fx22"

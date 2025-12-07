@@ -6,6 +6,9 @@
 script = ExtResource("1_0dixu")
 id = "flame_resilience"
 name = "Flame Resilience"
-levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
 description = "Reduces the amount of time needed to blow out a candle"
+max_level = 100
+max_value = 0.5
+curve = 4
+levels = Array[float]([0.0, 0.1, 0.2, 0.3, 0.4, 0.5])
 metadata/_custom_type_script = "uid://bubr2gqe2fx22"

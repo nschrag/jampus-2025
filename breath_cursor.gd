@@ -14,6 +14,9 @@ func get_effective_breath_rate() -> float:
 		return breath_rate + inventory.get_upgrade_value("exhale_rate")
 	else:
 		return breath_rate + inventory.get_upgrade_value("inhale_rate")
+		
+func get_effective_cursor_radius():
+	return cursor_radius + inventory.get_upgrade_value("blow_radius")
 
 func _ready() -> void:
 	cursor_color_opaque = cursor_color
@@ -34,11 +37,12 @@ func _process(delta: float) -> void:
 	# Blow out candles only while exhaling
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	for candle: Candle in get_tree().get_nodes_in_group("candle"):
-		candle.check_overlap(breath_rate == -1, camera, position, cursor_radius)
+		candle.check_overlap(breath_rate == -1, camera, position, get_effective_cursor_radius())
 		
 func _draw():
-	draw_circle(Vector2.ZERO, cursor_radius * breath_fill_fraction, cursor_color)
-	draw_circle(Vector2.ZERO, cursor_radius, cursor_color_opaque, false)
+	var r = get_effective_cursor_radius()
+	draw_circle(Vector2.ZERO, r * breath_fill_fraction, cursor_color)
+	draw_circle(Vector2.ZERO, r, cursor_color_opaque, false)
 	#var camera: Camera3D = get_viewport().get_camera_3d()
 	#for candle: Candle in get_tree().get_nodes_in_group("candle"):
 		#draw_circle(camera.unproject_position(candle.get_flame_pos()), 10, Color.SKY_BLUE, false)
