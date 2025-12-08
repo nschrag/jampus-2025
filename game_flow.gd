@@ -10,6 +10,8 @@ var inventory: Inventory
 var bday: Birthday
 var upgrade_screen: UpgradeScreen
 
+const debug_age_adjust = 0
+
 func _ready() -> void:
 	inventory = Inventory.new()
 	
@@ -31,7 +33,7 @@ func begin_celebration():
 	upgrade_screen.visible = false
 	breath_cursor.process_mode = Node.PROCESS_MODE_DISABLED
 	bday.candle_spawner.clear_candles()
-	bday.candle_spawner.spawn_candles(inventory, inventory.age - 17)
+	bday.candle_spawner.spawn_candles(inventory, inventory.age - debug_age_adjust)
 	wish_ui.visible = true
 
 func begin_upgrade():

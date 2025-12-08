@@ -10,7 +10,7 @@ height = 1.5
 radial_segments = 16
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tcgl6"]
-size = Vector2(30, 150)
+size = Vector2(20, 100)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pqck8"]
 viewport_path = NodePath("SubViewport")
@@ -18,32 +18,33 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wmlv8"]
 shader = ExtResource("2_pqck8")
 shader_parameter/res = Vector2(256, 256)
-shader_parameter/upper_color = Color(1, 0.5, 0, 1)
-shader_parameter/color_2 = Color(1, 1, 0, 1)
+shader_parameter/upper_color = Color(1, 0.6509804, 0, 1)
+shader_parameter/color_2 = Color(1, 1, 0.43529412, 1)
 shader_parameter/width = 0.5999999865888
 shader_parameter/curve = 1.99999995902132
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pqck8"]
 radius = 0.01
 
-[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame", "collider") groups=["candle"]]
+[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame", "collider", "flame_shader") groups=["candle"]]
 script = ExtResource("1_tcgl6")
 flame = NodePath("Wick/Flame")
 collider = NodePath("Area3D")
+flame_shader = NodePath("SubViewport/ColorRect")
 
 [node name="Stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("CylinderMesh_2ipi1")
 
 [node name="Wick" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-offset = Vector2(0, 75)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.5, 0)
+offset = Vector2(0, 50)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("PlaceholderTexture2D_tcgl6")
 
 [node name="Flame" type="Sprite3D" parent="Wick"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.188, 0)
+offset = Vector2(0, 125)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("ViewportTexture_pqck8")
@@ -54,8 +55,10 @@ size = Vector2i(256, 256)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
 material = SubResource("ShaderMaterial_wmlv8")
+offset_top = -1.0
 offset_right = 256.0
-offset_bottom = 256.0
+offset_bottom = 255.0
+pivot_offset = Vector2(128, 0)
 color = Color(0, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]

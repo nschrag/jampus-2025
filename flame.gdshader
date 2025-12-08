@@ -6,6 +6,9 @@ uniform vec3 color_2: source_color = vec3(1.0, 0.5, 0.0);
 uniform float width: hint_range(0.01, 1.0, 0.01) = 2.0;
 uniform float curve: hint_range(0.1, 10.0, 0.01) = 2.0;
 
+instance uniform float flicker_offset = 0.0;
+instance uniform float flicker_period = 2.0;
+
 void fragment() {
 	vec2 uv = vec2(UV.x - 0.5, UV.y);
 	/*
@@ -27,7 +30,9 @@ void fragment() {
 	float a1 = step(0.4, abs(uv.x) + pow(1.0 - UV.y, 3.0));
 	float a_prime = abs(uv.x) * 3.0 + pow(1.0 - UV.y, 2.0);
 	float a2 = smoothstep(0.4, 0.9, a_prime);
-	float blend = smoothstep(0.4, 0.6, a_prime);
+	
+	float flicker = (0.5 + pow(flicker_period * 0.5 - mod(TIME, flicker_period), 2.0));
+	float blend = smoothstep(0.3, 0.5, a_prime) * flicker ;
 	vec3 final_color = mix(upper_color, color_2, blend);
 	COLOR = vec4(upper_color, min(a1, a2));
 	COLOR = vec4(final_color, (1.0 - a2) * 0.9);

@@ -4,6 +4,7 @@ signal flame_extinguished
 
 @export var flame: Sprite3D
 @export var collider: Area3D
+@export var flame_shader: ColorRect
 var resilience: float = 0.5
 
 var timer: Timer
@@ -14,6 +15,15 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(extinguish)
 	add_child(timer)
+	
+	flame_shader.set_instance_shader_parameter("flicker_offset", randf() * 0.5)
+	flame_shader.set_instance_shader_parameter("flicker_period", randf_range(1.8, 2.2) * 0.5)
+	
+func _process(delta: float) -> void:
+	if timer.is_stopped():
+		flame.scale.y = 1.0
+	else:
+		flame.scale.y = 0.7 + 0.3 * (timer.time_left / resilience)
 	
 func check_overlap(blowing: bool, camera:Camera3D, pos:Vector2, radius: float):
 	if not flame.visible:
