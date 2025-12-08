@@ -15,7 +15,18 @@ func spawn_candles(inventory: Inventory, count: int):
 		c.position = Vector3(p.x, 0, p.y)
 		c.resilience -= inventory.get_upgrade_value("flame_resilience")
 		c.flame_extinguished.connect(_on_candle_extinguished)
+	
+	# Make groups to determine light placement
+	#var best: Candle = null
+	#for c: Candle in get_children():
+		#c.calc_distance_score(get_children())
+		#if best == null || c.neighbors.size() > best.neighbors.size():
+			#best = c
+			#
+	#best.extinguish()
 		
+#func find
+	
 func clear_candles():
 	for c in get_children():
 		c.queue_free()

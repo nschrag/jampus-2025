@@ -47,3 +47,12 @@ func extinguish():
 	collider.monitoring = false
 	flame.visible = false
 	flame_extinguished.emit()
+	
+var neighbors: Array[Candle]
+func calc_distance_score(candles: Array[Node]):
+	for c: Candle in candles:
+		var d = flame.global_position.distance_squared_to(c.flame.global_position)
+		if d < .8:
+			neighbors.push_back(c)
+		
+	print(neighbors.size())
