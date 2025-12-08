@@ -19,7 +19,7 @@ func _ready() -> void:
 	flame_shader.set_instance_shader_parameter("flicker_offset", randf() * 0.5)
 	flame_shader.set_instance_shader_parameter("flicker_period", randf_range(1.8, 2.2) * 0.5)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer.is_stopped():
 		flame.scale.y = 1.0
 	else:
