@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyvac0uqplsu3"]
+[gd_scene load_steps=8 format=3 uid="uid://dyvac0uqplsu3"]
 
 [ext_resource type="Script" uid="uid://bgu87dahtct6o" path="res://candle.gd" id="1_tcgl6"]
+[ext_resource type="Shader" uid="uid://52dyq67lutij" path="res://flame.gdshader" id="2_pqck8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2ipi1"]
 top_radius = 0.1
@@ -13,6 +14,14 @@ size = Vector2(30, 150)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pqck8"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmlv8"]
+shader = ExtResource("2_pqck8")
+shader_parameter/res = Vector2(256, 256)
+shader_parameter/upper_color = Color(1, 0.5, 0, 1)
+shader_parameter/color_2 = Color(1, 1, 0, 1)
+shader_parameter/width = 0.5999999865888
+shader_parameter/curve = 1.99999995902132
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pqck8"]
 radius = 0.01
@@ -34,19 +43,20 @@ billboard = 2
 texture = SubResource("PlaceholderTexture2D_tcgl6")
 
 [node name="Flame" type="Sprite3D" parent="Wick"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0703311, 0)
-modulate = Color(1, 1, 1, 0.39215687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("ViewportTexture_pqck8")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 size = Vector2i(256, 256)
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
+material = SubResource("ShaderMaterial_wmlv8")
 offset_right = 256.0
 offset_bottom = 256.0
-color = Color(1, 0.3882353, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
