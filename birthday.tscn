@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://boq5qh4017at0"]
+[gd_scene load_steps=6 format=3 uid="uid://boq5qh4017at0"]
 
 [ext_resource type="Script" uid="uid://dj3fxsb0k2hns" path="res://birthday.gd" id="1_3oc5p"]
 [ext_resource type="Script" uid="uid://br1g7djut0q7i" path="res://candle_spawner.gd" id="1_ir5de"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ir5de"]
+noise_type = 3
+seed = 3
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ir5de"]
 top_radius = 2.5
@@ -11,9 +15,12 @@ height = 1.5
 [sub_resource type="Environment" id="Environment_n3pnt"]
 ambient_light_color = Color(1, 1, 1, 1)
 
-[node name="Birthday" type="Node3D" node_paths=PackedStringArray("candle_spawner")]
+[node name="Birthday" type="Node3D" node_paths=PackedStringArray("candle_spawner", "lights")]
 script = ExtResource("1_3oc5p")
 candle_spawner = NodePath("CandleAnchor")
+noise = SubResource("FastNoiseLite_ir5de")
+lights = [NodePath("LightRoot/OmniLight3D"), NodePath("LightRoot2/OmniLight3D2"), NodePath("LightRoot3/OmniLight3D3"), NodePath("LightRoot4/OmniLight3D4")]
+light_energy = 1.5
 
 [node name="Cake" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -29,8 +36,10 @@ projection = 1
 fov = 30.0
 size = 3.5
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="LightRoot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.131046, 3.1, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightRoot"]
 light_color = Color(1, 0.48235294, 0.13725491, 1)
 light_energy = 1.835
 shadow_enabled = true
@@ -39,8 +48,10 @@ shadow_opacity = 0.5
 omni_range = 10.0
 omni_attenuation = 2.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="LightRoot2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20914155, 3.1, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="LightRoot2"]
 light_color = Color(1, 0.48235294, 0.13725491, 1)
 light_energy = 2.0
 shadow_enabled = true
@@ -49,8 +60,10 @@ shadow_opacity = 0.5
 omni_range = 10.0
 omni_attenuation = 2.0
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+[node name="LightRoot3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20914155, 3.1, 2.001264)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="LightRoot3"]
 light_color = Color(1, 0.48235294, 0.13725491, 1)
 light_energy = 2.0
 shadow_enabled = true
@@ -59,8 +72,10 @@ shadow_opacity = 0.5
 omni_range = 10.0
 omni_attenuation = 2.0
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+[node name="LightRoot4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4376793, 3.1, -1.6465406)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="LightRoot4"]
 light_color = Color(1, 0.48235294, 0.13725491, 1)
 light_energy = 2.0
 shadow_enabled = true
