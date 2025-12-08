@@ -43,7 +43,7 @@ billboard = 2
 texture = SubResource("PlaceholderTexture2D_tcgl6")
 
 [node name="Flame" type="Sprite3D" parent="Wick"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.188, 0)
 pixel_size = 0.001
 billboard = 2
 texture = SubResource("ViewportTexture_pqck8")
