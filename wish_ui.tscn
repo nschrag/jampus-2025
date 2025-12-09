@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://b6njdf6v6pcvh" path="res://main_theme.tres" id="1_n0kdx"]
 [ext_resource type="Script" uid="uid://bodt0ev2qobyb" path="res://wish_ui.gd" id="2_ccrlv"]
 
-[node name="WishUI" type="Control"]
+[node name="WishUI" type="Control" node_paths=PackedStringArray("wish_a", "wish_b")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_n0kdx")
 script = ExtResource("2_ccrlv")
+wish_a = NodePath("PanelContainer/VBoxContainer/HBoxContainer/ButtonWishA")
+wish_b = NodePath("PanelContainer/VBoxContainer/HBoxContainer/ButtonWishB")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

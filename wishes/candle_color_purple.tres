@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WishDefinition" load_steps=3 format=3 uid="uid://dy3iivfjdh18f"]
+
+[ext_resource type="Script" uid="uid://dr6enqo804y14" path="res://wishes/wish_definition.gd" id="1_u32l1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvst7"]
+albedo_color = Color(0.4, 0.39215687, 0.7607843, 1)
+
+[resource]
+script = ExtResource("1_u32l1")
+id = "wish_purple"
+description = "Purple candles next year"
+material = SubResource("StandardMaterial3D_mvst7")
+metadata/_custom_type_script = "uid://dr6enqo804y14"

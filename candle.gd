@@ -44,7 +44,8 @@ func check_overlap(blowing: bool, camera:Camera3D, pos:Vector2, radius: float):
 	if pos.distance_to(flame_pos) <= radius + _hack_flame_radius:
 		if resilience <= 0.05:
 			extinguish.call_deferred()
-		if timer.is_stopped():
+			timer.stop()
+		elif timer.is_stopped():
 			timer.start(resilience)
 	else:
 		timer.stop()

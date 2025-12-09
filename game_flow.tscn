@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ia0kfpqll41x"]
+[gd_scene load_steps=21 format=3 uid="uid://ia0kfpqll41x"]
 
 [ext_resource type="Script" uid="uid://buxixcommws8m" path="res://game_flow.gd" id="1_8surs"]
 [ext_resource type="Script" uid="uid://bhjhlw0nt6nue" path="res://upgrades/system/upgrade_pool.gd" id="2_rdnhm"]
@@ -9,7 +9,17 @@
 [ext_resource type="Resource" uid="uid://j2o73gmnd2ql" path="res://upgrades/data/breath_inhale_rate.tres" id="7_bby52"]
 [ext_resource type="Resource" uid="uid://cprlljk8tfd3y" path="res://upgrades/data/breath_exhale_rate.tres" id="7_dyw4y"]
 [ext_resource type="PackedScene" uid="uid://dpur0xmxohgq" path="res://breath_cursor.tscn" id="9_l4ek2"]
+[ext_resource type="Resource" uid="uid://diaar7nwcweoi" path="res://upgrades/data/bold_wish.tres" id="9_os3bc"]
 [ext_resource type="PackedScene" uid="uid://gy5lnaxw581i" path="res://wish_ui.tscn" id="10_dyw4y"]
+[ext_resource type="Script" uid="uid://dr6enqo804y14" path="res://wishes/wish_definition.gd" id="12_w2yue"]
+[ext_resource type="Resource" uid="uid://3cwgktqbgf47" path="res://wishes/candle_color_blue.tres" id="13_i82wi"]
+[ext_resource type="Resource" uid="uid://dflbou5jqefwf" path="res://wishes/candle_color_cyan.tres" id="14_r8x0v"]
+[ext_resource type="Resource" uid="uid://cc1jabrbsuhm7" path="res://wishes/candle_color_green.tres" id="15_3ckaw"]
+[ext_resource type="Resource" uid="uid://bctiww42eiufw" path="res://wishes/candle_color_pink.tres" id="16_44y1x"]
+[ext_resource type="Resource" uid="uid://dy3iivfjdh18f" path="res://wishes/candle_color_purple.tres" id="17_lupd4"]
+[ext_resource type="Resource" uid="uid://x7o4bofrijyy" path="res://wishes/candle_color_yellow.tres" id="18_iw24y"]
+[ext_resource type="Resource" uid="uid://cd7dixhws7mqh" path="res://wishes/birthday_forget.tres" id="19_r8x0v"]
+[ext_resource type="Resource" uid="uid://dfte4lli8p7dh" path="res://wishes/birthday_remember.tres" id="20_3ckaw"]
 
 [node name="GameFlow" type="Node" node_paths=PackedStringArray("upgrade_pool", "breath_cursor", "wish_ui")]
 script = ExtResource("1_8surs")
@@ -19,8 +29,9 @@ wish_ui = NodePath("WishUI")
 
 [node name="UpgradePool" type="Node" parent="."]
 script = ExtResource("2_rdnhm")
-definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("7_dyw4y"), ExtResource("7_bby52"), ExtResource("6_a3xpr"), ExtResource("6_os3bc")])
+definitions = Array[ExtResource("3_a3xpr")]([ExtResource("4_l4ek2"), ExtResource("7_dyw4y"), ExtResource("7_bby52"), ExtResource("6_a3xpr"), ExtResource("6_os3bc"), ExtResource("9_os3bc")])
 
 [node name="BreathCursor" parent="." instance=ExtResource("9_l4ek2")]
 
 [node name="WishUI" parent="." instance=ExtResource("10_dyw4y")]
+wishes = Array[ExtResource("12_w2yue")]([ExtResource("13_i82wi"), ExtResource("14_r8x0v"), ExtResource("15_3ckaw"), ExtResource("16_44y1x"), ExtResource("17_lupd4"), ExtResource("18_iw24y"), ExtResource("19_r8x0v"), ExtResource("20_3ckaw")])

@@ -11,6 +11,7 @@ class_name UpgradeDefinition extends Resource
 
 func get_value(level: int):
 	assert(level <= max_level)
+	level = min(level, max_level) # hack just make sure it's not over max level
 	return Tween.interpolate_value(0, max_value, level, max_level, curve, curve_ease)
 	
 func _get_value(level: int):

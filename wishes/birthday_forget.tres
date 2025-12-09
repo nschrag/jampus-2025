@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WishDefinition" load_steps=2 format=3 uid="uid://cd7dixhws7mqh"]
+
+[ext_resource type="Script" uid="uid://dr6enqo804y14" path="res://wishes/wish_definition.gd" id="1_ketxe"]
+
+[resource]
+script = ExtResource("1_ketxe")
+id = "wish_bday_forget"
+description = "Do forget my birthday"
+metadata/_custom_type_script = "uid://dr6enqo804y14"

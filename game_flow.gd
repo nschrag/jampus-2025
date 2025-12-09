@@ -36,6 +36,7 @@ func begin_celebration():
 	bday.candle_spawner.clear_candles()
 	bday.candle_spawner.spawn_candles(inventory, inventory.age - debug_age_adjust)
 	wish_ui.visible = true
+	wish_ui.select_wishes(inventory)
 
 func begin_upgrade():
 	breath_cursor.process_mode = Node.PROCESS_MODE_DISABLED
@@ -43,11 +44,13 @@ func begin_upgrade():
 	upgrade_screen.populate(inventory, upgrade_pool.select_set(3))
 	
 func _on_celebration_complete():
-	print(inventory.age / float(inventory.breath_count))
+	inventory.increase_wish_chance(selected_wish.id,  inventory.age / float(inventory.breath_count))
 	inventory.advance_time()
 	begin_upgrade()
-	
-func _on_wish_selected():
+
+var selected_wish: WishDefinition
+func _on_wish_selected(wish: WishDefinition):
+	selected_wish = wish
 	wish_ui.visible = false
 	breath_cursor.process_mode = Node.PROCESS_MODE_INHERIT
 	

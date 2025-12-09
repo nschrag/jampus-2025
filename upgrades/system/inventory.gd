@@ -8,6 +8,7 @@ var birth_month: int = 3
 var current_month: int
 var age: int = 18
 var upgrades: Dictionary[String, int]
+var wishes: Dictionary[String, float]
 var breath_count: int = 0
 var candle_colors: Array[Color]
 
@@ -24,6 +25,21 @@ func is_birth_month() -> bool:
 	
 func get_current_month_name() -> String:
 	return months[current_month]
+
+func has_wish(id: String):
+	return wishes.has(id)
+	
+func increase_wish_chance(id: String, value: float):
+	if wishes.has(id):
+		wishes[id] += value
+	else:
+		wishes[id] = value
+		
+func does_wish_come_true(id: String) -> bool:
+	if wishes.has(id):
+		return randf() < wishes[id]
+	else:
+		return false
 
 func upgrade(id: String):
 	if upgrades.has(id):
