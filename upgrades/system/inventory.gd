@@ -8,6 +8,7 @@ var birth_month: int = 3
 var current_month: int
 var age: int = 18
 var upgrades: Dictionary[String, int]
+var breath_count: int = 0
 
 func _init() -> void:
 	current_month = birth_month

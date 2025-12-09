@@ -60,3 +60,4 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released("breathe"):
 		breath_rate = -1
+		inventory.breath_count += 1

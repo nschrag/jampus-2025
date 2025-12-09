@@ -32,6 +32,7 @@ func _ready() -> void:
 func begin_celebration():
 	upgrade_screen.visible = false
 	breath_cursor.process_mode = Node.PROCESS_MODE_DISABLED
+	inventory.breath_count = 0
 	bday.candle_spawner.clear_candles()
 	bday.candle_spawner.spawn_candles(inventory, inventory.age - debug_age_adjust)
 	wish_ui.visible = true
@@ -42,6 +43,7 @@ func begin_upgrade():
 	upgrade_screen.populate(inventory, upgrade_pool.select_set(3))
 	
 func _on_celebration_complete():
+	print(inventory.age / float(inventory.breath_count))
 	inventory.advance_time()
 	begin_upgrade()
 	
