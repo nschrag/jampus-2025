@@ -20,11 +20,8 @@ func _ready() -> void:
 	flame_shader.set_instance_shader_parameter("flicker_offset", randf() * 0.5)
 	flame_shader.set_instance_shader_parameter("flicker_period", randf_range(1.8, 2.2) * 0.5)
 	
-func set_color(color: Color):
-	#var m: StandardMaterial3D = stick.get_active_material(0)
-	var m = StandardMaterial3D.new()
-	m.albedo_color = color
-	stick.set_surface_override_material(0, m)
+func set_material(mat: StandardMaterial3D):
+	stick.set_surface_override_material(0, mat)
 	
 func _process(_delta: float) -> void:
 	if timer.is_stopped():

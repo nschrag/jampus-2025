@@ -14,7 +14,6 @@ func spawn_candles(inventory: Inventory, count: int):
 		add_child(c)
 		c.position = Vector3(p.x, 0, p.y)
 		c.resilience -= inventory.get_upgrade_value("flame_resilience")
-		c.set_color(inventory.get_candle_color())
 		c.flame_extinguished.connect(_on_candle_extinguished)
 	
 	# Make groups to determine light placement
@@ -31,6 +30,17 @@ func spawn_candles(inventory: Inventory, count: int):
 func clear_candles():
 	for c in get_children():
 		c.queue_free()
+		
+func grant_wishes(wishes: Array[WishDefinition], inventory: Inventory):
+	for c: Candle in get_children():
+		for w: WishDefinition in wishes:
+			if w.material == null:
+				continue
+				
+			if inventory.does_wish_come_true(w.id):
+				c.set_material(w.material)
+				break
+	
 		
 func _on_candle_extinguished():
 	burning_candle_count -= 1

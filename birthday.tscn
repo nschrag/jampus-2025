@@ -15,12 +15,14 @@ height = 1.5
 [sub_resource type="Environment" id="Environment_n3pnt"]
 ambient_light_color = Color(1, 1, 1, 1)
 
-[node name="Birthday" type="Node3D" node_paths=PackedStringArray("candle_spawner", "lights")]
+[node name="Birthday" type="Node3D" node_paths=PackedStringArray("candle_spawner", "lights", "age_label", "guests_label")]
 script = ExtResource("1_3oc5p")
 candle_spawner = NodePath("CandleAnchor")
 noise = SubResource("FastNoiseLite_ir5de")
 lights = [NodePath("LightRoot/OmniLight3D"), NodePath("LightRoot2/OmniLight3D2"), NodePath("LightRoot3/OmniLight3D3"), NodePath("LightRoot4/OmniLight3D4")]
 light_energy = 1.5
+age_label = NodePath("HBoxContainer/Label2")
+guests_label = NodePath("HBoxContainer/Label4")
 
 [node name="Cake" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -86,5 +88,31 @@ omni_attenuation = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n3pnt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Age: "
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Guests: "
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 
 [connection signal="all_candles_extinguished" from="CandleAnchor" to="." method="_on_all_candles_extinguished"]

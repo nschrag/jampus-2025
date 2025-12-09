@@ -35,6 +35,8 @@ func begin_celebration():
 	inventory.breath_count = 0
 	bday.candle_spawner.clear_candles()
 	bday.candle_spawner.spawn_candles(inventory, inventory.age - debug_age_adjust)
+	bday.candle_spawner.grant_wishes(wish_ui.wishes, inventory)
+	bday.populate_hud(inventory)
 	wish_ui.visible = true
 	wish_ui.select_wishes(inventory)
 

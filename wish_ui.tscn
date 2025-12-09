@@ -36,7 +36,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "It might come true if you blow out all the candles in one breath."
+text = "It might come true if you blow out all the candles fast enough."
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="PanelContainer/VBoxContainer"]

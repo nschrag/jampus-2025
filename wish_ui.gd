@@ -25,8 +25,8 @@ func select_wishes(inventory: Inventory):
 	if b == null:
 		b = wishes[randi_range(2, 3)]
 	
-	wish_a.text = a.description
-	wish_b.text = b.description
+	wish_a.text = "%s (%.1f%%)" % [a.description, inventory.get_wish_chance(a.id)]
+	wish_b.text = "%s (%.1f%%)" % [b.description, inventory.get_wish_chance(b.id)]
 	
 	wish_options = [a, b]
 

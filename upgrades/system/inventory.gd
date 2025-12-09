@@ -35,9 +35,15 @@ func increase_wish_chance(id: String, value: float):
 	else:
 		wishes[id] = value
 		
+func get_wish_chance(id: String) -> float:
+	if wishes.has(id):
+		return wishes[id]
+	else:
+		return 0
+		
 func does_wish_come_true(id: String) -> bool:
 	if wishes.has(id):
-		return randf() < wishes[id]
+		return randf() < wishes[id] / 100.0
 	else:
 		return false
 
@@ -58,9 +64,3 @@ func get_upgrade_value(id: String) -> float:
 		return UpgradePool.get_value(id, upgrades[id])
 	else:
 		return 0
-		
-func get_candle_color() -> Color:
-	if candle_colors.size() == 0:
-		return Color.WHITE
-	else:
-		return candle_colors[randi_range(0, candle_colors.size() - 1)]
