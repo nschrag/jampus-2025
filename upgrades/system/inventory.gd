@@ -9,6 +9,7 @@ var current_month: int
 var age: int = 18
 var upgrades: Dictionary[String, int]
 var breath_count: int = 0
+var candle_colors: Array[Color]
 
 func _init() -> void:
 	current_month = birth_month
@@ -41,3 +42,9 @@ func get_upgrade_value(id: String) -> float:
 		return UpgradePool.get_value(id, upgrades[id])
 	else:
 		return 0
+		
+func get_candle_color() -> Color:
+	if candle_colors.size() == 0:
+		return Color.WHITE
+	else:
+		return candle_colors[randi_range(0, candle_colors.size() - 1)]

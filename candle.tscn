@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyvac0uqplsu3"]
+[gd_scene load_steps=9 format=3 uid="uid://dyvac0uqplsu3"]
 
 [ext_resource type="Script" uid="uid://bgu87dahtct6o" path="res://candle.gd" id="1_tcgl6"]
 [ext_resource type="Shader" uid="uid://52dyq67lutij" path="res://flame.gdshader" id="2_pqck8"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqck8"]
+emission = Color(1, 0, 1, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_2ipi1"]
+material = SubResource("StandardMaterial3D_pqck8")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 1.5
@@ -26,11 +30,12 @@ shader_parameter/curve = 1.99999995902132
 [sub_resource type="SphereShape3D" id="SphereShape3D_pqck8"]
 radius = 0.01
 
-[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame", "collider", "flame_shader") groups=["candle"]]
+[node name="Candle" type="Node3D" node_paths=PackedStringArray("flame", "collider", "flame_shader", "stick") groups=["candle"]]
 script = ExtResource("1_tcgl6")
 flame = NodePath("Wick/Flame")
 collider = NodePath("Area3D")
 flame_shader = NodePath("SubViewport/ColorRect")
+stick = NodePath("Stick")
 
 [node name="Stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)

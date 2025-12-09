@@ -14,6 +14,7 @@ func spawn_candles(inventory: Inventory, count: int):
 		add_child(c)
 		c.position = Vector3(p.x, 0, p.y)
 		c.resilience -= inventory.get_upgrade_value("flame_resilience")
+		c.set_color(inventory.get_candle_color())
 		c.flame_extinguished.connect(_on_candle_extinguished)
 	
 	# Make groups to determine light placement
