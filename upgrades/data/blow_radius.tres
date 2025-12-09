@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_v7ahl")
 id = "blow_radius"
-name = "Blow Radius"
+name = "Blowing Radius"
 description = "Increases the blowing area of effect"
 max_level = 100
 max_value = 25.0

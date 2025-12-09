@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_0dixu")
 id = "flame_resilience"
-name = "Flame Resilience"
+name = "Blowing Strength"
 description = "Reduces the amount of time needed to blow out a candle"
 max_level = 100
 max_value = 0.5
